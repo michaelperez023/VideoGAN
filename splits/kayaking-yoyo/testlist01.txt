@@ -8,7 +8,6 @@ Kayaking/v_Kayaking_g25_c01.avi
 Kayaking/v_Kayaking_g25_c02.avi
 Kayaking/v_Kayaking_g25_c03.avi
 Kayaking/v_Kayaking_g25_c04.avi
-YoYo/v_YoYo_g23_c06.avi
 YoYo/v_YoYo_g24_c01.avi
 YoYo/v_YoYo_g24_c02.avi
 YoYo/v_YoYo_g24_c03.avi

@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "videogan"
+version = "1.0.0"
+description = "A PyTorch study of VideoGAN: golf-scene video generation and UCF-101 fine-tuning"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Michael Perez" }]
+dependencies = [
+    "torch>=2.2",
+    "numpy>=1.24",
+    "pillow>=9.1",
+    "av>=12",
+]
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.7"]
+dev = ["pytest>=8", "ruff==0.17.5"]
+
+[project.urls]
+Repository = "https://github.com/michaelperez023/VideoGAN"
+
+[tool.setuptools.packages.find]
+include = ["videogan*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "UP", "SIM", "NPY", "PT", "RUF"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"

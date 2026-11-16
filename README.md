@@ -177,18 +177,6 @@ be added once the experiments are re-run. For reference, the paper reports 52.1%
 a discriminator pretrained on more than 5,000 hours of unlabeled Flickr video; here the
 discriminator is pretrained on the golf scenes only.
 
-## What changed since 2022
-
-- The model code, which was copied into three scripts, is now one package with tests and CI.
-- Training starts from scratch or resumes from a checkpoint, runs the requested number of
-  epochs, uses each clip once per epoch, loads data in worker processes, and writes samples and
-  logs every N steps instead of on every iteration. Mixed precision is optional.
-- Video files are written with PyAV instead of scikit-video, which fails with current NumPy.
-- Fine-tuning creates the optimizer after the new head, trains for full epochs, evaluates the
-  whole test list in eval mode without gradients, and accepts any batch size. It decodes only
-  the video stream, which removes the audio-related data-loading error of the 101-class run.
-- The Kayaking/YoYo split keeps every UCF-101 group on one side of the split.
-
 ## Development
 
 ```bash
@@ -239,7 +227,6 @@ This was my term project for CAP 6610 Machine Learning at the University of Flor
 fine-tuning experiments. The original [project proposal](docs/CAP6610_Machine_Learning_Project_Proposal.pdf)
 and [final report](docs/CAP6610_Machine_Learning_Project_Report.pdf) are in `docs/` as
 submitted. The report needs two corrections. First, the GAN was trained on the golf dataset, not
-on UCF-101 as the abstract says. Second, its fine-tuning section predates the fixes above: each
-binary accuracy it reports was measured on one batch of 10 test clips with an output layer that
-had not been trained, and the 24 epochs it describes were 24 mini-batches, so those numbers
-should not be relied on.
+on UCF-101 as the abstract says. Second, each binary accuracy in its fine-tuning section was
+measured on one batch of 10 test clips with an output layer that had not been trained, and the
+24 epochs it describes were 24 mini-batches, so those numbers should not be relied on.

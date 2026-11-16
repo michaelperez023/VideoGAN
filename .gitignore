@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# OS and editors
+.DS_Store
+.idea/
+.vscode/
+
+# Datasets, training runs and weights
+/data/
+/runs/
+/samples/
+*.pt
+*.pth
+*.ckpt
+
+# Slurm job output (scripts/slurm writes to logs/)
+logs/*.out
+logs/*.err
